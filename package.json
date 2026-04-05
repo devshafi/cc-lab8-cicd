@@ -1,0 +1,12 @@
+{
+  "name": "lab8-app",
+  "version": "1.0.0",
+  "description": "CISC 886 Lab 6 - CICD LAB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
