@@ -26,14 +26,14 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/lab8-app:latest
 
-    #   - name: Deploy to EC2
-    #     uses: appleboy/ssh-action@v1
-    #     with:
-    #       host: ${{ secrets.EC2_HOST }}
-    #       username: ubuntu
-    #       key: ${{ secrets.EC2_SSH_KEY }}
-    #       script: |
-    #         docker pull ${{ secrets.DOCKERHUB_USERNAME }}/lab8-app:latest
-    #         docker stop myapp || true
-    #         docker rm myapp || true
-    #         docker run -d -p 3000:3000 --name myapp ${{ secrets.DOCKERHUB_USERNAME }}/lab8-app:latest
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/lab8-app:latest
+            docker stop myapp || true
+            docker rm myapp || true
+            docker run -d -p 3000:3000 --name myapp ${{ secrets.DOCKERHUB_USERNAME }}/lab8-app:latest
